@@ -1,0 +1,29 @@
+@import url('../../assets/global.scss');
+
+.wrapper{
+	background-color: transparent;
+	border: 2px solid var(--borderColorPost);
+	height: 520px;
+	width: 400px;
+	border-radius: 20px;
+	box-sizing: border-box;
+	padding: 20px;
+	.img{
+		min-height: 250px;
+		margin-bottom: 20px;
+		img{
+			text-align: center;
+			width: 355px;
+			height: 250px;
+		}
+	}
+	.title {
+		padding: 20px 0 0 0;
+		min-height: 50px;
+		font-size: 25px;
+		font-weight: bold;
+		margin-top: 16px;
+		color: var(--color);
+	}
+
+}

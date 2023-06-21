@@ -1,0 +1,40 @@
+@import url('../../assets/global.scss');
+
+.wrapper {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: #00000081;
+	z-index: 1000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.content {
+	background-color:  var(--color);
+	min-height: 250px;
+	width: 420px;
+	border-radius: 30px;
+	color: var(--background);
+	padding: 40px;
+	font-weight: bold;
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 25px;
+		.img {
+			transform: scale(200%);
+			cursor: pointer;
+		}
+	}
+	.message {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 200px;
+		font-size: 40px;
+	}
+}

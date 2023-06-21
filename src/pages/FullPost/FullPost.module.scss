@@ -1,0 +1,44 @@
+@import url('../../assets/global.scss');
+.wrapper{
+	margin-top: 20px;
+	padding: 0px 300px 40px 400px;
+	.title {
+		margin: 20px 0;
+	}
+	.img{
+		text-align: center;
+		img{
+			height: 400px;
+			width: 700px;
+		}
+	}
+	.content{
+		margin-top: 20px;
+		text-align: justify;
+		line-height: 32px;
+		font-size: 20px;
+		color:var(--backgroundForm);
+	}
+
+	.com {
+		position: fixed;
+		color: var(--color);
+		font-weight: bold;
+		font-size: 20px;
+		left: 100px;
+		top: 400px;
+		display: flex;
+		gap: 20px;
+	}
+
+	p{
+		margin: 20px 0;
+		font-size: 15px;
+	}
+}
+// .remove{
+// 	position: absolute;
+// 	top:0;
+
+// 	cursor: pointer;
+// }

@@ -1,0 +1,33 @@
+@import url('../../assets/global.scss');
+
+.wrapper {
+	margin-top: 20px;
+	text-align: center;
+	height: 700px;
+	img{
+		min-height: 500px;
+		min-width: 700px;
+	}
+	.content {
+		position: relative;
+		top: -230px;
+		left: 140px;
+		width: 420px;
+		background-color: var(--background);
+		color: var(--color);
+		height: 270px;
+		box-shadow: 0 0 20px #00000075;
+		border-radius: 10px;
+		box-sizing: border-box;
+		padding: 40px;
+		text-align: left;
+
+		.title {
+			font-size: 25px;
+			font-weight: bold;
+			margin-top: 16px;
+			color: var(--color);
+		}
+
+	}
+}

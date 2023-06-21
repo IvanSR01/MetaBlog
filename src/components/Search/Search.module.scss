@@ -1,0 +1,17 @@
+@import '../../assets/global.scss';
+
+.input {
+	padding: 13px 60px 13px 20px;
+	width: 200px;
+	background-color: var(--inputBackground);
+	color: var(--inputColor);
+	outline: none;
+	border: none;
+	border-radius: 10px;
+	font-size: 20px;
+}
+.img {
+	transform: scale(130%);
+	position: relative;
+	right: 40px;
+}
