@@ -9,7 +9,7 @@ import styles from './Blog.module.scss'
 import RenderPost from './RenderPost'
 const Blog: FC = () => {
 	const [message, setMessage] = useState<string>('')
-	const { data, isLoading } = useQuery(['getPost'], () => GetAllPostService(), { // todo: loader
+	const { data, isLoading } = useQuery(['getPost'], () => GetAllPostService(), { 
 		onError: (error: any) => {
 			const res = useError(error)
 			setMessage(res)
