@@ -17,7 +17,6 @@ const Home: FC = () => {
 		}
 	})
 	const popularPost = usePopular(data)
-	console.log(popularPost)
 	return (
 		<div className={styles.wrapper}>
 			{isLoading ? (
@@ -27,7 +26,7 @@ const Home: FC = () => {
 			) : (
 				<>
 					<PopularPost {...popularPost}/>
-					{data.length > 0 ? (
+					{data ? (
 						<>
 							<h2 className={styles.title}>Latest Post</h2>
 							<div className={styles.posts}>
