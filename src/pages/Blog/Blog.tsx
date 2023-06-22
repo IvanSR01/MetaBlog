@@ -16,7 +16,6 @@ const Blog: FC = () => {
 		}
 	})
 	const tags = useQuery(['getTag'], () => GetTags())
-	console.log(tags)
 	const [countTag, setCountTag] = useState<number>(0)
 	return (
 		<div className={styles.wrapper}>

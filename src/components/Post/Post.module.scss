@@ -8,6 +8,21 @@
 	border-radius: 20px;
 	box-sizing: border-box;
 	padding: 20px;
+	.remove{
+		margin-left: 300px;
+		position: absolute;
+		padding: 20px;
+		background-color: #fff;
+		border-radius: 40px;
+		cursor: pointer;
+		.svg{
+			transform: scale(300%);
+		}
+		transition: background-color 1s;
+	}
+	.remove:hover{
+		filter: brightness(70%);
+	}
 	.img{
 		min-height: 250px;
 		margin-bottom: 20px;

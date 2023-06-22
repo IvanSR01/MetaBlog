@@ -16,7 +16,6 @@ const Home: FC = () => {
 			setMessage(res)
 		}
 	})
-	//  todo: pohyi
 	const popularPost = usePopular(data)
 	console.log(popularPost)
 	return (
