@@ -8,7 +8,7 @@ Backend - https://github.com/zxcivan07/Meta-blog-Backend
 Стэк: { <br />_
         TypeScript, <br />_
         React Js, <br />_
-        React Library: { <br />_
+        React Library: { <br />__
           React-hook-form, <br />__
           React-Query,  <br />__
           React-router-dom, <br />__
