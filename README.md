@@ -5,7 +5,7 @@ Start - npm run dev
 Backend - https://github.com/zxcivan07/Meta-blog-Backend
 
 
-Стэк: { <br />  
+Стэк: { <br /> 
         TypeScript, <br />   
         React Js, <br />
         React Library: { <br />
