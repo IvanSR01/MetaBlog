@@ -14,12 +14,12 @@ Backend - https://github.com/zxcivan07/Meta-blog-Backend
           React-router-dom, <br />__
           React-icons, <br />__
           React SimpleMDE, <br />__
-          React-redux <br />__
+          React-redux <br />_
         }, <br />_
         Redux Toolkit, <br />_
         Material ui, <br />_ 
         Scss, <br />_
         axios, <br />_
         Framer-motion, <br />_
-        Vite <br />_
+        Vite <br />
 } 
