@@ -5,9 +5,9 @@ Start - npm run dev
 Backend - https://github.com/zxcivan07/Meta-blog-Backend
 
 
-Стэк: {
-  TypeScript,
-  React Js,
+Стэк: { <br />
+  TypeScript, <br />
+  React Js, <br />
   React Library: {
     React-hook-form,
     React-Query,
