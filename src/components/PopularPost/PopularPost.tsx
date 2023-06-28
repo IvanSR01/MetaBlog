@@ -16,7 +16,7 @@ const PopularPost: FC<IPost> = ({ _id, tag, title, imgUrl,  user, createdAt }) =
 				<div className={styles.content}>
 					<Tag isPopular={true}>{tag}</Tag>
 					<p className={styles.title}>{title}</p>
-					<Description author={user.fullName} date={fullDate} />
+					<Description user={user} date={fullDate} />
 				</div>
 			</div>
 		</Link>

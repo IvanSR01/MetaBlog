@@ -1,0 +1,19 @@
+@import url('../../../assets/global.scss');
+
+.user {
+	border-bottom: 2px solid var(--colorSub);
+	padding-bottom: 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	h2{
+		font-size: 40px;
+	}
+	.buttons {
+		display: flex;
+		gap: 20px;
+		button{
+			font-size: 30px;
+		}
+	}
+}

@@ -1,7 +1,11 @@
 @import url('../../assets/global.scss');
 .wrapper{
 	margin-top: 20px;
-	padding: 0px 300px 40px 400px;
+	display: flex;
+	justify-content: center;
+	.post{
+		width: 700px;
+	}
 	.title {
 		margin: 20px 0;
 	}

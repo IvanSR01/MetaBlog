@@ -17,8 +17,8 @@ export const dataLinks: TypeData[] = [
     path: "/created",
   },
   {
-    title: "Logout",
-    path: "/null",
+    title: "User",
+    path: "/user",
   },
 ];
 export const dataLinksNotAuth: TypeData[] = [

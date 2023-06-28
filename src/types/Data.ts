@@ -8,7 +8,7 @@ export interface ISingUp {
 	password: string
 }
 export interface IUserData {
-	id: string
+	_id: string
 	email: string 
 	fullName: string
 }
@@ -19,14 +19,9 @@ export interface IPost {
 	title: string
 	text: string
 	imgUrl: string
-	user: IUser
+	user: IUserData
 	createdAt: string
 	viewsCount: number
-}
-
-export interface IUser {
-	email: string
-	fullName: string
 }
 
 export interface ICreatedPost {

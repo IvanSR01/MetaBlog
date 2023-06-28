@@ -5,6 +5,7 @@ import SingUp from '../pages/SingUp/SingUp'
 import Blog from '../pages/Blog/Blog'
 import Created from '../pages/Created/Created'
 import FullPost from '../pages/FullPost/FullPost'
+import User from '../pages/User/User'
 export interface IRouterData {
 	path: string
 	element: FC
@@ -33,5 +34,9 @@ export const RouterData: IRouterData[] = [
 	{
 		path: '/fullpost/:id',
 		element: FullPost
+	},
+	{
+		path: '/user/:id',
+		element: User
 	},
 ]

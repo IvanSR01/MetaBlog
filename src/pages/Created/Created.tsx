@@ -20,7 +20,7 @@ const Created: FC = () => {
 	const isAuth = useAppSelector(state => Boolean(state.user.user))
 	const nav = useNavigate()
 	useEffect(() => {
-		if(!isAuth){
+		if (!isAuth) {
 			nav('/')
 		}
 	}, [isAuth])
@@ -34,7 +34,7 @@ const Created: FC = () => {
 	const inputRef = useRef<HTMLInputElement | null>(null)
 	const { mutate } = useMutation(
 		['auth'],
-		({title, text, tag, imgUrl }: ICreatedPost) =>
+		({ title, text, tag, imgUrl }: ICreatedPost) =>
 			CreateService(title, text, tag, imgUrl),
 		{
 			onError: (error: any) => {
@@ -149,7 +149,6 @@ const Created: FC = () => {
 						<button className={styles.button}>Отмена</button>
 					</Link>
 				</div>
-				A
 			</div>
 		</div>
 	)

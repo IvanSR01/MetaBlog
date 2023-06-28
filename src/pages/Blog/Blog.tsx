@@ -6,7 +6,7 @@ import Tag from '../../components/Tag/Tag'
 import { useError } from '../../hook/useError'
 import { GetAllPostService, GetTags } from '../../service/Post.service'
 import styles from './Blog.module.scss'
-import RenderPost from './RenderPost'
+import RenderPost from './RenderPostBlog'
 const Blog: FC = () => {
 	const [message, setMessage] = useState<string>('')
 	const { data, isLoading } = useQuery(['getPost'], () => GetAllPostService(), { 

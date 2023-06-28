@@ -1,15 +1,20 @@
 import { FC } from 'react'
 import styles from './Desc.module.scss'
+import { Link } from 'react-router-dom'
+import { IUserData } from '../../types/Data'
 
 interface IDesc {
-	author: string
+	user: IUserData
 	date: string
 }
 
-const Description: FC<IDesc> = ({ author, date }) => {
+const Description: FC<IDesc> = ({ user, date }) => {
+	console.log(user)
 	return (
 		<div className={styles.desc}>
-			<div>{author}</div>
+			<Link style={{ textDecoration: 'none' }} to={`/user/${user._id}`}>
+				<div>{user.fullName}</div>
+			</Link>
 			<div>{date}</div>
 		</div>
 	)

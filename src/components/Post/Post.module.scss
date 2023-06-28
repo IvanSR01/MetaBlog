@@ -3,25 +3,13 @@
 .wrapper{
 	background-color: transparent;
 	border: 2px solid var(--borderColorPost);
-	height: 520px;
+	min-height: 520px;
 	width: 400px;
 	border-radius: 20px;
 	box-sizing: border-box;
 	padding: 20px;
 	.remove{
-		margin-left: 300px;
-		position: absolute;
-		padding: 20px;
-		background-color: #fff;
-		border-radius: 40px;
-		cursor: pointer;
-		.svg{
-			transform: scale(300%);
-		}
-		transition: background-color 1s;
-	}
-	.remove:hover{
-		filter: brightness(70%);
+		margin-top: 10px;
 	}
 	.img{
 		min-height: 250px;
@@ -30,11 +18,12 @@
 			text-align: center;
 			width: 355px;
 			height: 250px;
+			border-radius: 10px;
 		}
 	}
 	.title {
 		padding: 20px 0 0 0;
-		min-height: 50px;
+		min-height: 100px;
 		font-size: 25px;
 		font-weight: bold;
 		margin-top: 16px;
