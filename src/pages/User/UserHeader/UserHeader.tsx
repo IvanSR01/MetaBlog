@@ -3,7 +3,7 @@ import styles from './UserHeader.module.scss'
 import { Button } from '@mui/material'
 import { useQuery } from '@tanstack/react-query'
 import { GetUserAnyService } from '../../../service/User.service'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../../hook/useRedux'
 import { setUser } from '../../../redux/Slice/User.slice'
 const UserHeader: FC = () => {
@@ -25,9 +25,11 @@ const UserHeader: FC = () => {
 			<h2>{data?.fullName}</h2>
 			{data?.email === user?.email ? (
 				<div className={styles.buttons}>
-					{/* <Button variant='contained' color='secondary'>
-						Update
-					</Button> */}
+					<Link to='/update'>
+						<Button variant='contained' color='secondary'>
+							Update
+						</Button>
+					</Link>
 					<Button onClick={() => onClick()} variant='contained'>
 						Logout
 					</Button>

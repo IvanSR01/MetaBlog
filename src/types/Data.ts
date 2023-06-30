@@ -7,6 +7,12 @@ export interface ISingUp {
 	email: string
 	password: string
 }
+
+ 
+export interface IUpdate extends ISingUp {
+	id: string
+}
+
 export interface IUserData {
 	_id: string
 	email: string 

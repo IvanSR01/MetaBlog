@@ -7,6 +7,8 @@ const DataRender: FC = () => {
 	const isAuth: boolean = useAppSelector(state => Boolean(state.user.user))
 	const { user } = useAppSelector(state => state.user)
 	const { pathname } = useLocation()
+	const obj = useLocation()
+	console.log(obj)
 	return (
 		<div className={styles.links}>
 			{isAuth ? (

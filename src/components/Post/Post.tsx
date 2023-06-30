@@ -36,7 +36,15 @@ const Post: FC<IPost> = ({
 		}
 	}
 	return (
-		<div className={styles.wrapper}>
+		<div
+			className={styles.wrapper}
+			onClick={() => {
+				window.scrollTo({
+					top: -1000,
+					behavior: 'smooth'
+				})
+			}}
+		>
 			{message && <Message onClick={() => setMessage('')}>{message}</Message>}
 			<Link to={`/fullpost/${_id}`} style={{ textDecoration: 'none' }}>
 				<div className={styles.img}>

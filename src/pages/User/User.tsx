@@ -8,11 +8,14 @@ import { AnimatePresence } from 'framer-motion'
 import Message from '../../components/Message/Message'
 import { useError } from '../../hook/useError'
 import { useParams } from 'react-router-dom'
+import { CircularProgress } from '@mui/material'
 const User: FC = () => {
 	const [message, setMessage] = useState<string>('')
 	const { id } = useParams()
-	const { data } = useQuery(['getPostUser'], () =>
-		GetAllPostUserService(id), {
+	const { data, isLoading } = useQuery(
+		['getPostUser'],
+		() => GetAllPostUserService(id),
+		{
 			onError: (err: any) => {
 				const res = useError(err)
 				setMessage(res)
@@ -24,8 +27,14 @@ const User: FC = () => {
 			<AnimatePresence>
 				{message && <Message onClick={() => setMessage('')}>{message}</Message>}
 			</AnimatePresence>
-			<UserHeader />
-			<RenderPost data={data} />
+			{isLoading ? (
+				<CircularProgress />
+			) : (
+				<>
+					<UserHeader />
+					<RenderPost data={data} />
+				</>
+			)}
 		</div>
 	)
 }

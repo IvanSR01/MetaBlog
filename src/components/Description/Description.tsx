@@ -9,7 +9,6 @@ interface IDesc {
 }
 
 const Description: FC<IDesc> = ({ user, date }) => {
-	console.log(user)
 	return (
 		<div className={styles.desc}>
 			<Link style={{ textDecoration: 'none' }} to={`/user/${user._id}`}>

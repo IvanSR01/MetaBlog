@@ -1,46 +1,43 @@
-import { FC, useEffect, useState } from 'react'
-import styles from './SingUp.module.scss'
-import {  Link, useNavigate } from 'react-router-dom'
-import { Button, TextField, CircularProgress } from '@mui/material'
-import { useForm } from 'react-hook-form'
-import { useMutation } from '@tanstack/react-query'
-import { RegisterService } from '../../service/Auth.service'
-import { useError } from '../../hook/useError'
+import { Button, CircularProgress, TextField } from '@mui/material'
 import { AnimatePresence } from 'framer-motion'
+import { FC, useEffect, useState } from 'react'
 import Message from '../../components/Message/Message'
-import { useAppDispatch, useAppSelector } from '../../hook/useRedux'
-import { ISingUp, IUserData } from '../../types/Data'
-import { setUser } from '../../redux/Slice/User.slice'
-
-const SingUp: FC = () => {
-	const isAuth: boolean = useAppSelector(state => Boolean(state.user.user))
+import styles from '../SingUp/SingUp.module.scss'
+import { useMutation } from '@tanstack/react-query'
+import { UpdateUserService } from '../../service/User.service'
+import { useForm } from 'react-hook-form'
+import { IUpdate } from '../../types/Data'
+import { useNavigate } from 'react-router-dom'
+import { useAppSelector } from '../../hook/useRedux'
+import { useError } from '../../hook/useError'
+const Update: FC = () => {
+	const nav = useNavigate()
+	const { user } = useAppSelector(state => state.user)
+	useEffect(() => {
+		if(!Boolean(user)){
+			nav('/')
+		}
+	}, [])
 	const {
 		register,
 		handleSubmit,
 		formState: { errors }
-	} = useForm<ISingUp>({ mode: 'onChange' })
-	const nav = useNavigate()
-	useEffect(() => {
-		if (isAuth) nav('/')
-	}, [isAuth])
-	const [message, setMessage] = useState<string>('')
-	const dispatch = useAppDispatch()
+	} = useForm<IUpdate>({ mode: 'onChange' })
 	const { mutate, isLoading } = useMutation(
-		['authR'],
-		({ fullName, email, password }: ISingUp) =>
-			RegisterService(fullName, email, password),
-		{
-			onError: (error: any) => {
-				const res = useError(error)
-				setMessage(res)
-			},
-			onSuccess: (data: IUserData) => {
-				dispatch(setUser(data))
+		['updateUser'],
+		({ email, fullName, password }: IUpdate) =>
+			UpdateUserService(user?._id, fullName, email, password), {
+				onError: (err: any) => {
+					const res = useError(err)
+					setMessage(res)
+				},
+				onSuccess: () => {
+					nav(`/`)
+				}
 			}
-		}
 	)
-
-	const onSubmit = (data: ISingUp) => {
+	const [message, setMessage] = useState<string>('')
+	const onSubmit = (data: IUpdate) => {
 		mutate(data)
 	}
 	return (
@@ -52,10 +49,8 @@ const SingUp: FC = () => {
 				<CircularProgress />
 			) : (
 				<div className={styles.content}>
-					<h2>Sing Up</h2>
-					<p className={styles.helperText}>
-						Create a free account with your email.
-					</p>
+					<h2>Update</h2>
+					<p className={styles.helperText}>Update your account information.</p>
 					<form onSubmit={handleSubmit(onSubmit)}>
 						<div className={styles.form}>
 							<TextField
@@ -87,11 +82,8 @@ const SingUp: FC = () => {
 								className={styles.button}
 								variant='contained'
 							>
-								Sing Up
+								Update
 							</Button>
-							<Link style={{ textDecoration: 'none' }} to='/singIn'>
-								<div className={styles.link}>Or Sing In</div>
-							</Link>
 						</div>
 					</form>
 				</div>
@@ -100,4 +92,4 @@ const SingUp: FC = () => {
 	)
 }
 
-export default SingUp
+export default Update
