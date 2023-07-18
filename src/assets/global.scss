@@ -38,3 +38,9 @@ body {
 .body{
 	padding: 0 250px;
 }
+::selection {
+	background: #4b6bfba2;
+	}
+	::-moz-selection {
+	background: #4b6bfba2; 
+	}
