@@ -4,7 +4,7 @@ import { Button } from '@mui/material'
 import { useQuery } from '@tanstack/react-query'
 import { GetUserAnyService } from '../../../service/User.service'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { useAppDispatch, useAppSelector } from '../../../hook/useRedux'
+import { useAppDispatch, useAppSelector } from '../../../hook'
 import { setUser } from '../../../redux/Slice/User.slice'
 const UserHeader: FC = () => {
 	const { id } = useParams()

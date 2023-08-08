@@ -1,13 +1,12 @@
 import { FC, useState } from 'react'
 import styles from './Post.module.scss'
-import Tag from '../Tag/Tag'
 import { Link } from 'react-router-dom'
 import Description from '../Description/Description'
 import { IPost } from '../../types/Data'
-import { useAppSelector } from '../../hook/useRedux'
+import { useAppSelector } from '../../hook/hooks/useRedux'
 import { DeletePostService } from '../../service/Post.service'
-import Message from '../Message/Message'
 import { Button } from '@mui/material'
+import { Message, Tag } from '..'
 const Post: FC<IPost> = ({
 	_id,
 	tag,

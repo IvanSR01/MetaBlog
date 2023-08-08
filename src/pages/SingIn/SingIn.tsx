@@ -3,13 +3,12 @@ import styles from './SingIn.module.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import { Button, TextField, CircularProgress } from '@mui/material'
 import { useForm } from 'react-hook-form'
-import { ISingIn, IUserData } from '../../types/Data'
+import { IAuth, IUserData } from '../../types/Data'
 import { useMutation } from '@tanstack/react-query'
-import { LoginService } from '../../service/Auth.service'
-import { useError } from '../../hook/useError'
-import Message from '../../components/Message/Message'
+import AuthService from '../../service/Auth.service'
+import { useError, useAppDispatch, useAppSelector } from '../../hook'
+import { Message } from '../../components'
 import { AnimatePresence } from 'framer-motion'
-import { useAppDispatch, useAppSelector } from '../../hook/useRedux'
 import { setUser } from '../../redux/Slice/User.slice'
 const SingIn: FC = () => {
 	const isAuth: boolean = useAppSelector(state => Boolean(state.user.user))
@@ -17,7 +16,7 @@ const SingIn: FC = () => {
 		register,
 		handleSubmit,
 		formState: { errors }
-	} = useForm<ISingIn>({ mode: 'onChange' })
+	} = useForm<IAuth>({ mode: 'onChange' })
 	const nav = useNavigate()
 	useEffect(() => {
 		if (isAuth) nav('/')
@@ -26,7 +25,8 @@ const SingIn: FC = () => {
 	const dispatch = useAppDispatch()
 	const { mutate, isLoading } = useMutation(
 		['authL'],
-		({ email, password }: ISingIn) => LoginService(email, password),
+		({ email, password }: IAuth) =>
+			AuthService.main({ email, password, type: 'login' }),
 		{
 			onError: (error: any) => {
 				const res = useError(error)
@@ -38,7 +38,7 @@ const SingIn: FC = () => {
 		}
 	)
 
-	const onSubmit = (data: ISingIn) => {
+	const onSubmit = (data: IAuth) => {
 		mutate(data)
 	}
 	return (

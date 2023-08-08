@@ -1,12 +1,10 @@
 import { FC, useState } from 'react'
-import PopularPost from '../../components/PopularPost/PopularPost'
 import styles from './Home.module.scss'
 import { useQuery } from '@tanstack/react-query'
 import { GetAllPostService } from '../../service/Post.service'
-import { useError } from '../../hook/useError'
 import { CircularProgress } from '@mui/material'
-import { usePopular } from '../../hook/usePopular'
-import RenderPost from '../../components/RenderPost/RenderPost'
+import { useError, usePopular } from '../../hook'
+import { PopularPost, RenderPost } from '../../components'
 const Home: FC = () => {
 	const [message, setMessage] = useState<string>('')
 	const { data, isLoading } = useQuery(['getPost'], () => GetAllPostService(), {
@@ -15,7 +13,7 @@ const Home: FC = () => {
 			setMessage(res)
 		}
 	})
-	const popularPost = usePopular(data)
+	const popularPost = data ? usePopular(data) : undefined
 	return (
 		<div className={styles.wrapper}>
 			{isLoading ? (
@@ -24,7 +22,7 @@ const Home: FC = () => {
 				</div>
 			) : (
 				<>
-					<PopularPost {...popularPost}/>
+					{!!popularPost && <PopularPost {...popularPost}/> }
 					{data ? (
 						<>
 							<h2 className={styles.title}>Latest Post</h2>

@@ -1,15 +1,12 @@
-export interface ISingIn {
-	email: string,
-	password: string
-}
-export interface ISingUp {
-	fullName: string
+export interface IAuth {
+	fullName?: string
+	type?: 'login' | 'register'
 	email: string
 	password: string
 }
 
  
-export interface IUpdate extends ISingUp {
+export interface IUpdate extends IAuth {
 	id: string
 }
 
@@ -17,6 +14,7 @@ export interface IUserData {
 	_id: string
 	email: string 
 	fullName: string
+	token?: string
 }
 
 export interface IPost {

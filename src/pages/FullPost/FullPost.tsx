@@ -3,8 +3,8 @@ import { FC, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { GetOnePostService } from '../../service/Post.service'
 import styles from './FullPost.module.scss'
-import Tag from '../../components/Tag/Tag'
-import Message from '../../components/Message/Message'
+import { Message, Tag } from '../../components'
+
 const FullPost: FC = () => {
 	const { id } = useParams()
 	const [message, setMessage] = useState<string>('')

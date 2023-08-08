@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { AnimatePresence } from 'framer-motion'
 import { FC, useState } from 'react'
-import Message from '../../components/Message/Message'
-import Tag from '../../components/Tag/Tag'
-import { useError } from '../../hook/useError'
+import { useError } from '../../hook/hooks/useError'
 import { GetAllPostService, GetTags } from '../../service/Post.service'
 import styles from './Blog.module.scss'
+import { Message, Tag } from '../../components'
 import RenderPost from './RenderPostBlog'
 const Blog: FC = () => {
 	const [message, setMessage] = useState<string>('')

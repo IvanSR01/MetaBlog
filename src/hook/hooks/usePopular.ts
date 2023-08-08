@@ -1,4 +1,4 @@
-import { IPost } from '../types/Data'
+import { IPost } from '../../types/Data'
 
 export const usePopular = (data: IPost[]): IPost | null => {
 	if (!data) {

@@ -8,8 +8,7 @@ import { UpdateUserService } from '../../service/User.service'
 import { useForm } from 'react-hook-form'
 import { IUpdate } from '../../types/Data'
 import { useNavigate } from 'react-router-dom'
-import { useAppSelector } from '../../hook/useRedux'
-import { useError } from '../../hook/useError'
+import { useError, useAppSelector } from '../../hook'
 const Update: FC = () => {
 	const nav = useNavigate()
 	const { user } = useAppSelector(state => state.user)

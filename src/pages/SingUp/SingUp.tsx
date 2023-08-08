@@ -1,24 +1,22 @@
 import { FC, useEffect, useState } from 'react'
 import styles from './SingUp.module.scss'
-import {  Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button, TextField, CircularProgress } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import { useMutation } from '@tanstack/react-query'
-import { RegisterService } from '../../service/Auth.service'
-import { useError } from '../../hook/useError'
+import AuthService from '../../service/Auth.service'
+import { useError, useAppDispatch, useAppSelector } from '../../hook'
 import { AnimatePresence } from 'framer-motion'
-import Message from '../../components/Message/Message'
-import { useAppDispatch, useAppSelector } from '../../hook/useRedux'
-import { ISingUp, IUserData } from '../../types/Data'
+import { Message } from '../../components'
+import { IAuth, IUserData } from '../../types/Data'
 import { setUser } from '../../redux/Slice/User.slice'
-
 const SingUp: FC = () => {
 	const isAuth: boolean = useAppSelector(state => Boolean(state.user.user))
 	const {
 		register,
 		handleSubmit,
 		formState: { errors }
-	} = useForm<ISingUp>({ mode: 'onChange' })
+	} = useForm<IAuth>({ mode: 'onChange' })
 	const nav = useNavigate()
 	useEffect(() => {
 		if (isAuth) nav('/')
@@ -27,8 +25,8 @@ const SingUp: FC = () => {
 	const dispatch = useAppDispatch()
 	const { mutate, isLoading } = useMutation(
 		['authR'],
-		({ fullName, email, password }: ISingUp) =>
-			RegisterService(fullName, email, password),
+		({ fullName, email, password }: IAuth) =>
+		 AuthService.main({email, password, fullName, type: 'register'}),
 		{
 			onError: (error: any) => {
 				const res = useError(error)
@@ -40,7 +38,7 @@ const SingUp: FC = () => {
 		}
 	)
 
-	const onSubmit = (data: ISingUp) => {
+	const onSubmit = (data: IAuth) => {
 		mutate(data)
 	}
 	return (

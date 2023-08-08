@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { FC, useContext, useEffect } from 'react'
 import Header from './components/Header/Header'
-import { useAppDispatch } from './hook/useRedux'
+import { useAppDispatch } from './hook/hooks/useRedux'
 import { ThemeContext } from './provider/ThemeProvider'
 import { setUser } from './redux/Slice/User.slice'
 import Router from './router/Router'

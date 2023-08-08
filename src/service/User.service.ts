@@ -1,4 +1,4 @@
-import { instance } from '../axios'
+import { instance } from '../axios.config'
 import { IPost, IUserData } from '../types/Data'
 
 export const GetUserService = async () => {

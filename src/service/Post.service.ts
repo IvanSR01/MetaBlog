@@ -1,15 +1,8 @@
-import { instance } from '../axios'
-import { IPost } from '../types/Data'
+import { instance } from '../axios.config'
+import { ICreatedPost, IPost } from '../types/Data'
 
-export const CreateService = async (
-	title: string,
-	text: string,
-	tag: string,
-	imgUrl: string
-) => {
-	const { data } = await instance.post('/posts', { title, tag, text, imgUrl })
-	return data
-}
+const POSTS = '/posts'
+
 
 export const GetAllPostService = async () => {
 	const { data } = await instance.get('/posts')
@@ -23,8 +16,8 @@ export const GetOnePostService = async (id: string) => {
 	return returnData
 }
 
-export const GetTags = async() =>{
-	const { data } =  await instance.get(`/posts/tags`)
+export const GetTags = async () => {
+	const { data } = await instance.get(`/posts/tags`)
 	const returnData: string[] = data
 	return returnData
 }
@@ -48,3 +41,23 @@ export const GetPostComments = async (id: number) => {
 	const { data } = await instance.get(`/comments/${id}`)
 	return data
 }
+
+class PostService {
+	async CreatePost({ title, text, tag, imgUrl }: ICreatedPost) {
+		return await instance<IPost>({
+			url: `${POSTS}`,
+			method: 'post',
+			data: {
+				title,
+				text,
+				tag,
+				imgUrl
+			}
+		})
+	}
+	async GetAllPost(){
+		
+	}
+}
+
+export default new PostService()

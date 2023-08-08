@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import styles from './Header.module.scss'
 import { dataLinks, dataLinksNotAuth } from './Data'
-import { useAppSelector } from '../../hook/useRedux'
+import { useAppSelector } from '../../hook/hooks/useRedux'
 import { Link, useLocation } from 'react-router-dom'
 const DataRender: FC = () => {
 	const isAuth: boolean = useAppSelector(state => Boolean(state.user.user))

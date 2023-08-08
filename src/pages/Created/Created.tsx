@@ -3,14 +3,13 @@ import 'easymde/dist/easymde.min.css'
 import { FC, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import SimpleMDE from 'react-simplemde-editor'
-import { instance } from '../../axios'
-import { useAppSelector } from '../../hook/useRedux'
-import { CreateService } from '../../service/Post.service'
+import { instance } from '../../axios.config'
+import { useAppSelector, useError } from '../../hook'
+import PostService from '../../service/Post.service'
 import { ICreatedPost, IOptions } from '../../types/Data'
 import styles from './Created.module.scss'
-import Message from '../../components/Message/Message'
 import { AnimatePresence } from 'framer-motion'
-import { useError } from '../../hook/useError'
+import { Message } from '../../components'
 
 interface HTMLInputEvent extends Event {
 	target: HTMLInputElement & EventTarget
@@ -35,7 +34,7 @@ const Created: FC = () => {
 	const { mutate } = useMutation(
 		['auth'],
 		({ title, text, tag, imgUrl }: ICreatedPost) =>
-			CreateService(title, text, tag, imgUrl),
+			PostService.CreatePost({ title, text, tag, imgUrl }),
 		{
 			onError: (error: any) => {
 				const res = useError(error)
